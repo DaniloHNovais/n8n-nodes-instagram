@@ -1,0 +1,78 @@
+{
+  "name": "@mr.robot2026/n8n-nodes-instagram-integrations",
+  "version": "1.6.2",
+  "description": "N8N nodes for Instagram API integration with OAuth2 authentication",
+  "keywords": [
+    "n8n-community-node-package",
+    "instagram",
+    "messaging",
+    "instagram-api",
+    "social-media",
+    "content-management"
+  ],
+  "homepage": "https://github.com/Msameim181/n8n-nodes-instagram-integrations#readme",
+  "bugs": {
+    "url": "https://github.com/Msameim181/n8n-nodes-instagram-integrations/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Msameim181/n8n-nodes-instagram-integrations.git"
+  },
+  "license": "MIT",
+  "author": "Mohammad Mahdi Samei <9259samei@gmail.com>",
+  "type": "commonjs",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "files": [
+    "dist",
+    "CHANGELOG.md",
+    "AUTHENTICATION_GUIDE.md",
+    "API_REFERENCE.md",
+    "CONTRIBUTING.md"
+  ],
+  "scripts": {
+    "build": "n8n-node build",
+    "build:watch": "tsc --watch",
+    "dev": "n8n-node dev",
+    "dev:manual": "npm run build && npm link && N8N_CUSTOM_EXTENSIONS=$(pwd) n8n start",
+    "link": "npm link",
+    "unlink": "npm unlink",
+    "format": "prettier nodes credentials --write",
+    "lint": "n8n-node lint",
+    "lintfix": "n8n-node lint --fix",
+    "test": "n8n-node test",
+    "release": "n8n-node release",
+    "prepublishOnly": "npm run build"
+  },
+  "devDependencies": {
+    "@n8n/node-cli": "^0.13.0",
+    "@types/node": "^24.6.2",
+    "@typescript-eslint/parser": "~8.32.0",
+    "eslint": "^9.0.0",
+    "eslint-plugin-n8n-nodes-base": "^1.16.3",
+    "gulp": "^5.0.0",
+    "prettier": "^3.5.3",
+    "typescript": "^5.8.2"
+  },
+  "peerDependencies": {
+    "n8n-workflow": "*"
+  },
+  "engines": {
+    "node": ">=20.15"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "n8n": {
+    "n8nNodesApiVersion": 1,
+    "credentials": [
+      "dist/credentials/InstagramOAuth2Api.credentials.js"
+    ],
+    "nodes": [
+      "dist/nodes/Instagram/Instagram.node.js",
+      "dist/nodes/Instagram/InstagramTrigger.node.js"
+    ]
+  }
+}
